@@ -1,0 +1,16 @@
+@use '/src/styles/constants/colors';
+
+.layout {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  background: colors.$LAYOUT_BACKGROUND;
+
+  .movieListContainer {
+    width: 100%;
+    margin: 0 auto;
+    overflow-y: scroll;
+  }
+}
