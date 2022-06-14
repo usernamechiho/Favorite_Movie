@@ -1,13 +1,26 @@
 import styles from './movieList.module.scss'
 import SearchInput from '../_Component/SearchInput'
 
+import MovieCard from './MovieCard'
+
 const MovieList = () => {
   return (
     <div className={styles.movieListContainer}>
-      <div className={styles.inputContainer}>
+      <header className={styles.inputContainer}>
         <SearchInput />
-      </div>
-      <section className={styles.movieListSection}>12</section>
+      </header>
+      <section className={styles.movieListSection}>
+        <ul>
+          <li>
+            <MovieCard />
+          </li>
+          <li>박스 2</li>
+          <li>박스 3</li>
+          <li>박스 4</li>
+          <li>박스 4</li>
+          <li>박스 4</li>
+        </ul>
+      </section>
     </div>
   )
 }
