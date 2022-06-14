@@ -10,6 +10,7 @@
 
   .movieListContainer {
     width: 100%;
+    height: calc(100vh - 70px);
     margin: 0 auto;
     overflow-y: scroll;
   }

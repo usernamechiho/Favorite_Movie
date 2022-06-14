@@ -1,4 +1,7 @@
+import styles from './searchInput.module.scss'
+
 import { useState, ChangeEvent, FormEvent } from 'react'
+import { InputSearchIcon } from 'assets/svgs'
 
 const INPUT_PLACEHOLDER = '영화 제목을 입력해주세요.'
 
@@ -13,8 +16,9 @@ const SearchInput = () => {
     setSearchInput(e.currentTarget.value)
   }
   return (
-    <form onSubmit={handleSubmit}>
-      <input type='text' placeholder={INPUT_PLACEHOLDER} onChange={changeSearchInput} />
+    <form className={styles.inputForm} onSubmit={handleSubmit}>
+      <InputSearchIcon className={styles.searchIcon} />
+      <input type='text' className={styles.input} placeholder={INPUT_PLACEHOLDER} onChange={changeSearchInput} />
     </form>
   )
 }

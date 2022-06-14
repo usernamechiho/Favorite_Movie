@@ -1,0 +1,23 @@
+@use '/src/styles/constants/colors';
+
+.inputForm {
+  position: relative;
+  display: flex;
+  width: 400px;
+  height: 50px;
+  border: 2px solid colors.$BLUE_MAIN_COLOR;
+  border-radius: 10px;
+
+  .searchIcon {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    margin: 10px 0 0 10px;
+  }
+}
+
+.input {
+  width: 75%;
+  margin: auto;
+  color: colors.$SEARCH_INPUT_COLOR;
+}
