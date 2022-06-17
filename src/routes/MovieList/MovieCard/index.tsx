@@ -1,19 +1,27 @@
 import styles from './movieCard.module.scss'
 
+import { changeToDefaultImage } from 'utils/helper'
 import { FavoriteStarIcon } from 'assets/svgs'
 import DEFAULT_POSTER from 'assets/images/noPoster.png'
 
-const MovieCard = () => {
+const MovieCard = ({ info }: any) => {
   return (
-    <button type='button' className={styles.listButtonContainer}>
-      <img src={DEFAULT_POSTER} className={styles.moviePoster} />
-      <dl className={styles.movieInfo}>
-        <dt>Movie Title</dt>
-        <dd>1997</dd>
-        <dd>Genre</dd>
-      </dl>
-      <FavoriteStarIcon className={styles.buttonStarIcon} />
-    </button>
+    <li>
+      <button type='button' className={styles.listButtonContainer}>
+        <img
+          src={info.Poster}
+          alt={`${info.Title}, ${info.Year}`}
+          className={styles.moviePoster}
+          onError={(e) => changeToDefaultImage(e, DEFAULT_POSTER)}
+        />
+        <dl className={styles.movieInfo}>
+          <dt>{info.Title}</dt>
+          <dd>{info.Year}</dd>
+          <dd>{info.Type}</dd>
+        </dl>
+        <FavoriteStarIcon className={styles.buttonStarIcon} />
+      </button>
+    </li>
   )
 }
 
