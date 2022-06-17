@@ -3,6 +3,7 @@ import { useMount, useState, useUpdateEffect, useCallback } from 'hooks'
 
 import SearchInput from '../_Component/SearchInput'
 import MovieCard from './MovieCard'
+import Spinner from 'routes/_Component/Spinner'
 import { getMovieListFromApi } from 'services/movie'
 import { useSearchParams } from 'react-router-dom'
 
@@ -62,7 +63,7 @@ const MovieList = () => {
       <section className={styles.movieListSection}>
         {movieList && <ul>{MovieCardList}</ul>}
         {!movieList.length && !isLoading && <span className={styles.errorMessage}>{errorMessage}</span>}
-        {isLoading && <h1>Loading</h1>}
+        {isLoading && <Spinner />}
       </section>
     </div>
   )
