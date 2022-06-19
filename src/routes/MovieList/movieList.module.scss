@@ -8,6 +8,7 @@
 
 .movieListSection {
   @include flexbox.flexbox;
+  flex-direction: column;
   margin-top: 15px;
 
   li {
@@ -15,4 +16,10 @@
     height: 200px;
     margin-top: 15px;
   }
+}
+
+.errorMessage {
+  margin-top: 40px;
+  font-size: 18px;
+  color: colors.$WHITE;
 }
