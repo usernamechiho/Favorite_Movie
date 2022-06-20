@@ -46,7 +46,7 @@ const MovieList = () => {
         setErrorMessage(NO_CONNECTION)
       })
     setIsLoading(false)
-  }, [inputSearchTitle, pageNumber])
+  }, [inputSearchTitle, pageNumber, setMovieList])
 
   useMount(() => {
     fetchMovieListFromApi()
@@ -54,14 +54,14 @@ const MovieList = () => {
 
   useEffect(() => {
     if (inView) setPageNumber((prev) => prev + 1)
-  }, [inView])
+  }, [inView, setPageNumber])
 
   useUpdateEffect(() => {
     fetchMovieListFromApi()
   }, [inputSearchTitle, pageNumber])
 
-  const MovieCardList: JSX.Element[] = movieList.map((info, i) => (
-    <li key={`${info.imdbID}_${i}`}>
+  const MovieCardList: JSX.Element[] = movieList.map((info) => (
+    <li key={`${info.imdbID}_${info.Title}`}>
       <MovieCard info={info} />
     </li>
   ))
