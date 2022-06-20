@@ -1,5 +1,6 @@
 @use '/src/styles/mixins/flexbox';
 @use '/src/styles/constants/colors';
+@use '/src/styles/mixins/responsive';
 
 .favoritePageContainer {
   @include flexbox.flexbox;
@@ -24,10 +25,21 @@
 }
 
 .favoriteCardContainer {
-  width: 700px;
+  width: 400px;
   height: 200px;
 
   li {
     margin-top: 15px;
+  }
+}
+
+@include responsive.after(ML) {
+  .favoriteCardContainer {
+    width: 700px;
+    height: 200px;
+
+    li {
+      margin-top: 15px;
+    }
   }
 }

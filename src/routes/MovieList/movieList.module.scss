@@ -1,5 +1,6 @@
 @use '/src/styles/mixins/flexbox';
 @use '/src/styles/constants/colors';
+@use '/src/styles/mixins/responsive';
 
 .inputContainer {
   @include flexbox.flexbox;
@@ -12,9 +13,23 @@
   margin-top: 15px;
 
   li {
-    width: 700px;
+    width: 400px;
     height: 200px;
     margin-top: 15px;
+  }
+}
+
+@include responsive.after(ML) {
+  .movieListSection {
+    @include flexbox.flexbox;
+    flex-direction: column;
+    margin-top: 15px;
+
+    li {
+      width: 700px;
+      height: 200px;
+      margin-top: 15px;
+    }
   }
 }
 

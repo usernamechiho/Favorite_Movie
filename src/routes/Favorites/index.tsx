@@ -4,13 +4,27 @@ import MovieCard from 'routes/MovieList/MovieCard'
 import { useRecoilValue } from 'recoil'
 import { favoriteMovieListState } from 'states/movie'
 
+import useDragDrop from 'utils/dragAndDrop'
+
 import { SmileIcon } from 'assets/svgs'
 
 const Favorites = () => {
   const favoriteMovieList = useRecoilValue(favoriteMovieListState)
 
+  const { handleDragOver, handleDragStart, handleDragEnd, handleDrop } = useDragDrop()
+
   const FavoriteMovieListCard = favoriteMovieList.map((info, i) => (
-    <MovieCard info={info} key={`${info.Title}_${info.imdbID}`} />
+    <li
+      key={`${info.Title}_${info.imdbID}`}
+      data-position={i}
+      draggable
+      onDragOver={handleDragOver}
+      onDragStart={handleDragStart}
+      onDragEnd={handleDragEnd}
+      onDrop={handleDrop}
+    >
+      <MovieCard info={info} />
+    </li>
   ))
 
   return (

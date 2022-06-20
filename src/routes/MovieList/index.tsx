@@ -22,7 +22,6 @@ const MovieList = () => {
 
   const [errorMessage, setErrorMessage] = useState('')
   const [isLoading, setIsLoading] = useState(false)
-  const [isModalOpen, setIsModalOpen] = useState(false)
 
   const [searchParams] = useSearchParams()
   const inputSearchTitle = searchParams.get('title')
@@ -61,7 +60,11 @@ const MovieList = () => {
     fetchMovieListFromApi()
   }, [inputSearchTitle, pageNumber])
 
-  const MovieCardList: JSX.Element[] = movieList.map((info, i) => <MovieCard info={info} key={`${info.imdbID}_${i}`} />)
+  const MovieCardList: JSX.Element[] = movieList.map((info, i) => (
+    <li key={`${info.imdbID}_${i}`}>
+      <MovieCard info={info} />
+    </li>
+  ))
 
   return (
     <div className={styles.movieListContainer}>

@@ -3,16 +3,21 @@ import { cx } from 'styles'
 
 import { useState } from 'hooks'
 
-import { changeToDefaultImage } from 'utils/helper'
+import { changeToDefaultImage } from 'utils/image'
 import { FavoriteStarIcon } from 'assets/svgs'
 import DEFAULT_POSTER from 'assets/images/noPoster.png'
 import { useRecoilValue } from 'recoil'
 import { favoriteMovieListState } from 'states/movie'
+import { MovieInfo } from 'types/movie'
 
 import Portal from 'routes/_Component/Modal/portal'
 import Modal from 'routes/_Component/Modal/Modal'
 
-const MovieCard = ({ info }: any) => {
+interface Props {
+  info: MovieInfo
+}
+
+const MovieCard = ({ info }: Props) => {
   const [isModal, setIsModal] = useState(false)
 
   const handleModalOpen = () => setIsModal(true)
@@ -21,7 +26,7 @@ const MovieCard = ({ info }: any) => {
   const IsFavoriteMovie = useRecoilValue(favoriteMovieListState).find((list) => list.imdbID === info.imdbID)
 
   return (
-    <li>
+    <>
       <button type='button' className={styles.listButtonContainer} onClick={handleModalOpen}>
         <img
           src={info.Poster}
@@ -42,7 +47,7 @@ const MovieCard = ({ info }: any) => {
           <Modal onClose={handleModalClose} info={info} />
         </Portal>
       )}
-    </li>
+    </>
   )
 }
 
