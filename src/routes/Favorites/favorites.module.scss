@@ -1,0 +1,45 @@
+@use '/src/styles/mixins/flexbox';
+@use '/src/styles/constants/colors';
+@use '/src/styles/mixins/responsive';
+
+.favoritePageContainer {
+  @include flexbox.flexbox;
+  flex-direction: column;
+}
+
+.favoriteHeader {
+  margin: 20px 0;
+  text-align: center;
+
+  h1 {
+    margin-top: 10px;
+    font-size: 20px;
+    color: colors.$WHITE;
+  }
+}
+
+.smileIcon {
+  width: 60px;
+  height: 60px;
+  fill: colors.$WHITE;
+}
+
+.favoriteCardContainer {
+  width: 400px;
+  height: 200px;
+
+  li {
+    margin-top: 15px;
+  }
+}
+
+@include responsive.after(ML) {
+  .favoriteCardContainer {
+    width: 700px;
+    height: 200px;
+
+    li {
+      margin-top: 15px;
+    }
+  }
+}

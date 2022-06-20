@@ -1,0 +1,57 @@
+@use '/src/styles/constants/colors';
+
+.listButtonContainer {
+  display: grid;
+  grid-template-columns: 120px 4fr 1fr;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 0 15px;
+  background: colors.$BUTTON_LIST_BACKGROUND;
+  border: 2px solid colors.$BUTTON_LIST_BORDER_COLOR;
+  border-radius: 10px;
+
+  .moviePoster {
+    width: 100%;
+    height: 90%;
+    background: colors.$BLACK;
+    border-radius: 20px;
+    object-fit: contain;
+  }
+
+  .movieInfo {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    height: 150px;
+    margin-left: 20px;
+
+    dt {
+      align-self: flex-start;
+      height: 70%;
+      overflow: scroll;
+      font-size: 20px;
+      font-weight: 600;
+      color: colors.$BUTTON_FONT_COLOR;
+    }
+
+    dd {
+      color: colors.$BUTTON_FONT_COLOR;
+    }
+  }
+
+  .starIcon {
+    justify-self: end;
+    width: 25px;
+    height: 25px;
+    margin-bottom: 140px;
+    color: colors.$BUTTON_START_ICON;
+    fill: colors.$BUTTON_START_ICON;
+  }
+
+  .favoriteIcon {
+    color: colors.$STAR_ICON_FAVORITE;
+    fill: colors.$STAR_ICON_FAVORITE;
+  }
+}
