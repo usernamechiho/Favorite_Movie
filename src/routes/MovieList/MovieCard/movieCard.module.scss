@@ -41,11 +41,17 @@
     }
   }
 
-  .buttonStarIcon {
+  .starIcon {
     justify-self: end;
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     margin-bottom: 140px;
+    color: colors.$BUTTON_START_ICON;
     fill: colors.$BUTTON_START_ICON;
+  }
+
+  .favoriteIcon {
+    color: colors.$STAR_ICON_FAVORITE;
+    fill: colors.$STAR_ICON_FAVORITE;
   }
 }

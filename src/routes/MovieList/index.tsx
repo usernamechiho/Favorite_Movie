@@ -61,8 +61,6 @@ const MovieList = () => {
     fetchMovieListFromApi()
   }, [inputSearchTitle, pageNumber])
 
-  console.log(movieList)
-
   const MovieCardList: JSX.Element[] = movieList.map((info, i) => <MovieCard info={info} key={`${info.imdbID}_${i}`} />)
 
   return (

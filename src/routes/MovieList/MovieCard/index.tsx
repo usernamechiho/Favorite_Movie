@@ -1,10 +1,13 @@
 import styles from './movieCard.module.scss'
+import { cx } from 'styles'
 
 import { useState } from 'hooks'
 
 import { changeToDefaultImage } from 'utils/helper'
 import { FavoriteStarIcon } from 'assets/svgs'
 import DEFAULT_POSTER from 'assets/images/noPoster.png'
+import { useRecoilValue } from 'recoil'
+import { favoriteMovieListState } from 'states/movie'
 
 import Portal from 'routes/_Component/Modal/portal'
 import Modal from 'routes/_Component/Modal/Modal'
@@ -14,6 +17,8 @@ const MovieCard = ({ info }: any) => {
 
   const handleModalOpen = () => setIsModal(true)
   const handleModalClose = () => setIsModal(false)
+
+  const IsFavoriteMovie = useRecoilValue(favoriteMovieListState).find((list) => list.imdbID === info.imdbID)
 
   return (
     <li>
@@ -29,7 +34,7 @@ const MovieCard = ({ info }: any) => {
           <dd>{info.Year}</dd>
           <dd>{info.Type}</dd>
         </dl>
-        <FavoriteStarIcon className={styles.buttonStarIcon} />
+        <FavoriteStarIcon className={cx(styles.starIcon, { [styles.favoriteIcon]: IsFavoriteMovie })} />
       </button>
 
       {isModal && (
